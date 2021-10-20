@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Horloge Javascript</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="javascript.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+        <link href="fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    </head>
+
+    <body class="grid_container" onload="startTime()">
+
+        <nav>
+            <div class="formatButton"><i class="far fa-clock fa-3x"></i></div>
+            <div class="dateButton"><i class="far fa-calendar-alt fa-3x"></i></div>
+            <div id="tooltipFormat" class="tooltip"><span>Changer format 12H/24H</span></div>
+            <div id="tooltipDate" class="tooltip"><span>Afficher/Cacher la date</span></div>
+        </nav>
+
+        <div class="centerbox">
+            <div id="date" class="datetime"></div>
+            <div id="time" class="datetime"></div>
+        </div>
+
+    </body>
+</html>
