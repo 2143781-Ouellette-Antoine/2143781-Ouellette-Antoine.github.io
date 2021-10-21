@@ -15,7 +15,7 @@ function startTime() {
     if(timeFormat12) {
       if(hours >= 12)
       {
-        period = 'PM';//else, stays AM because of loop
+        period = "PM";//else, stays AM because of loop
       }
       if(hours == 0)
       {
@@ -48,9 +48,9 @@ return i;
 }
 
 function changeTimeFormat(button) {
-    button.classList.toggle("selected");
-    timeFormat12 = !timeFormat12;
-    startTime();
+  button.classList.toggle("selected");
+  timeFormat12 = !timeFormat12;
+  startTime();
 }
 
 function hideDate(button) {
