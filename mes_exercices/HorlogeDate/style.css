@@ -26,9 +26,13 @@ nav{
 
   grid-area: nav;
 }
-
+button{
+  background-color: transparent;
+  border: none;
+}
 /*CSS for each buttons*/
 .formatButton{
+  color: white;
   height: 65px;
   width: 65px;
   border-radius: 15px;
@@ -38,6 +42,7 @@ nav{
   align-items: center;
 }
 .dateButton{
+  color: white;
   height: 65px;
   width: 65px;
   border-radius: 15px;
@@ -111,6 +116,10 @@ nav{
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 3px;
+}
+
+.hide{
+  display: none;
 }
 
 .time{

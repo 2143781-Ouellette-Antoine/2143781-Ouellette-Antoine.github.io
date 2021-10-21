@@ -1,3 +1,5 @@
+var timeFormat12 = true;
+
 function startTime() {
   const today = new Date();
 
@@ -8,20 +10,22 @@ function startTime() {
       hours = today.getHours(),
       minutes = today.getMinutes(),
       seconds = today.getSeconds(),
-      period = "AM";
+      period = timeFormat12 ? "AM" : "";//if(timeFormat12) {period=AM}else{period=null}
 
-  if(hours >= 12)
-  {
-      period = "PM";//else, stays AM because of loop
-  }
-  if(hours == 0)
-  {
-      hours = 12;
-  }
-  if(hours > 12)
-  {
-      hours = hours - 12;
-  }
+    if(timeFormat12) {
+      if(hours >= 12)
+      {
+        period = 'PM';//else, stays AM because of loop
+      }
+      if(hours == 0)
+      {
+        hours = 12;
+      }
+      if(hours > 12)
+      {
+        hours = hours - 12;
+      }
+    }
 
   //date
   var days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];//A list
@@ -41,4 +45,15 @@ function startTime() {
 function checkFormat(i) {
 if (i < 10) {i = "0" + i};  // add zero in front of numbers(second or minute) < 10
 return i;
+}
+
+function changeTimeFormat(button) {
+    button.classList.toggle("selected");
+    timeFormat12 = !timeFormat12;
+    startTime();
+}
+
+function hideDate(button) {
+  button.classList.toggle("selected");
+  document.getElementById("date").classList.toggle("hide");
 }

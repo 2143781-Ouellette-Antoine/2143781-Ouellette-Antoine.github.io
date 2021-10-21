@@ -13,8 +13,8 @@
     <body class="grid_container" onload="startTime()">
 
         <nav>
-            <div class="formatButton"><i class="far fa-clock fa-3x"></i></div>
-            <div class="dateButton"><i class="far fa-calendar-alt fa-3x"></i></div>
+            <button class="formatButton" onclick="changeTimeFormat(this)"><i class="far fa-clock fa-3x"></i></button>
+            <button class="dateButton" onclick="hideDate(this)"><i class="far fa-calendar-alt fa-3x"></i></button>
             <div id="tooltipFormat" class="tooltip"><span>Changer format 12H/24H</span></div>
             <div id="tooltipDate" class="tooltip"><span>Afficher/Cacher la date</span></div>
         </nav>
