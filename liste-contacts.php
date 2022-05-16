@@ -1,6 +1,6 @@
 <?php
 /**
- * Page d'accueil de ma page.
+ * Page qui liste tous les contacts.
  * @author Antoine Ouellette
  */
 require 'include/configuration.inc'; /*Appel configuration.inc*/

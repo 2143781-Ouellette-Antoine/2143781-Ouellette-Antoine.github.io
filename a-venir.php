@@ -4,7 +4,7 @@
  * @author Antoine Ouellette
  */
 require 'include/configuration.inc'; /*Appel configuration.inc*/
-require 'include/entete.inc';
+require 'include/entete.inc'; /*Appel entete.inc*/
 ?>
 <h2>Liste des cours</h2>
 <div class="row"><!--Premiere rangee-->

@@ -1,1 +1,0 @@
-afficherPopup3Secondes('Le script propre a cette page s\'est execute', 3);/*Caller la fonction from ma-bibliotheque-popup*/

@@ -5,9 +5,6 @@
  */
 require 'include/ma-bibliotheque.php'; /*Link ma-bibliotheque.php*/
 
-/*Link the DataBase*/
-@$mysqli = new mysqli("127.0.0.1", "root", "mysql", "notes_ouelletteantoine");
-
 if ($mysqli->connect_errno) {
 
     die("&Eacute;chec lors de la connexion &agrave; la base de donn&eacute;es");
@@ -41,36 +38,64 @@ if ($mysqli->connect_errno) {
 
 <body>
 <div class="header_section">
-    <div class="container">
+    <div class="container p-0">
         <div class="row">
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-md-3 p-0">
                 <div class="logo"><a href="index.php">No<span>tes</span></a></div>
             </div>
-            <div class="col-sm-6 col-lg-9">
+            <div class="col-md-7 p-0">
                 <!-- menu -->
                 <div class="menu_text">
                     <div id="panneau" class="overlay">
                         <a href="#" class="closebtn" id="boutonFermerPanneau">&times;</a>
                         <div class="overlay-content">
                             <a href="index.php">Accueil</a>
-                            <a href="cours.php">Cours</a>
+                            <a href="liste-cours.php">Cours</a>
                             <a href="formatifs.php">Formatifs</a>
-                            <a href="contact.php">Contact</a>
+                            <a href="formulaire-contact.php">Contact</a>
                         </div>
                     </div>
                     <ul>
                         <li><a href="index.php">Accueil</a></li>
-                        <li><a href="cours.php">Cours</a></li>
+                        <li><a href="liste-cours.php">Cours</a></li>
                         <li><a href="formatifs.php">Formatifs</a></li>
-                        <li><a href="contact.php">Contact</a></li>
+                        <li><a href="formulaire-contact.php">Contact</a></li>
                     </ul>
                     <img src="medias/commun/toggle-menu.png" id="boutonOuvrirPanneau">
                 </div>
                 <!-- fin menu -->
             </div>
+            <div class="col-md-1 d-flex justify-content-center align-items-center btn" id="divLoginButton">
+                <?php
+                //not logged in (user icon right)
+                if( !(isset($_SESSION['authentification'])) || $_SESSION['authentification']==false)
+                {
+                    echo "
+                        <a class=\"text-white\" href=\"formulaire-authentification.php\">
+                            <span>Connexion</span>
+                            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-person-fill\" viewBox=\"0 0 16 16\">
+                              <path d=\"M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z\"/>
+                            </svg>
+                    ";
+                }
+                else
+                //logged in (power icon right)
+                {
+                    echo "
+                        <a class=\"text-white\" href=\"deconnexion.php\">
+                            <div class='d-flex flex-column'>
+                                <span>{$_SESSION['prenom_usager']}</span>
+                                <span class='text-danger'>Déconnexion</span>
+                            </div>
+                    ";
+                }
+                ?>
+                        </a>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- contenu -->
 <div class="section-contenu layout_padding">
     <div class="container">
@@ -82,7 +107,20 @@ if ($mysqli->connect_errno) {
         </div>
     </div>
 </div>
+
 <!-- fin contenu -->
 <!-- contenu2 -->
 <div class="section-contenu2 diagonal-box">
     <div class="container">
+        <?php
+        if (!PAGE_PUBLIC && !(isset($_SESSION['authentification'])))
+        {
+            echo "<div class='alert alert-danger' role='alert'>
+                <p>Vous ne disposez pas des droits requis pour accéder à cette page.</p>
+                </div>";
+
+            require 'pied-page.inc';
+            require 'nettoyage.inc';
+            die();
+        }
+        ?>

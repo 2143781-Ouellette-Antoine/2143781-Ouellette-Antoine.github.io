@@ -1,6 +1,6 @@
 <?php
 /**
- * Fichier PHP qui Valide le formulaire
+ * Fichier PHP qui Valide le formulaire 'formulaire-contact.php'
  * et envoie les donnees dans la BD.
  * @author Antoine Ouellette
  */
@@ -9,11 +9,11 @@ require 'include/configuration.inc'; /*Appel configuration.inc*/
 // Si je proviens d'un formulaire POST
 if (!empty($_POST))
 {
-    //*** Protetion XSS *******************************************************************
+    //*** Protection XSS *******************************************************************
     foreach ($_POST as $element => $valeur)
     {
         $_POST[$element] = htmlspecialchars($valeur);//Convertir les caracteres speciaux
-    }//mon xss est en conflis avec mon textarea
+    }
 
     //*** Initialisation des variables pour clarifier le code *****************************
     $nom_utilisateur = $_POST['nom_utilisateur'];
@@ -65,8 +65,8 @@ if (!empty($_POST))
         // Enregistrer que l'operation est reussie
         $_SESSION['operation_reussie'] = true;
         $_SESSION['message_operation'] = "Formulaire: Reussite!";
-        // effectuer ensuite une redirection vers contact.php
-        header("location: contact.php");//retourne sur le formulaire (et message de reussite)
+        // effectuer ensuite une redirection vers formulaire-contact.php
+        header("location: formulaire-contact.php");//retourne sur le formulaire (et message de reussite)
     }
     else
     {
@@ -77,7 +77,7 @@ if (!empty($_POST))
         $_SESSION['message_operation'] = $messageErreur;
         // Conserve les données du formulaire dans une variable de session.
         $_SESSION['POST'] = $_POST;
-        header("location: contact.php");//Renvoye les donnees POST au formulaire
+        header("location: formulaire-contact.php");//Renvoye les donnees POST au formulaire
     }
 
 }

@@ -6,7 +6,27 @@
 require 'include/configuration.inc'; /*Appel configuration.inc*/
 require 'include/entete.inc'; /*Appel entete.inc*/
 
+//Si le formulaire retourne un message
+if (isset($_SESSION['message_operation']))
+{
+    //Message de reussite
+    if ($_SESSION['operation_reussie'] == true)
+    {
+        echo "<div class='alert alert-success' role='alert'>";
+    }
+    //Message d'echec
+    else
+    {
+        echo "<div class='alert alert-danger' role='alert'>";
+    }
 
+    echo $_SESSION['message_operation'];//Affiche le contenu du message.
+    echo "</div>";
+    $_SESSION['message_operation'] = null;
+    $_SESSION['operation_reussie'] = null;
+}
+?>
+<?php
 $requete = "SELECT id, titre, dateevaluation FROM formatifs ORDER BY dateevaluation";//une requete mysql
 $resultat = $mysqli->query($requete);     // on exécute cette requête.
 

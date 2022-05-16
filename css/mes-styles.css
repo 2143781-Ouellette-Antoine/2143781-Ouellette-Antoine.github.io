@@ -77,3 +77,33 @@ button {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+#divLoginButton{
+    padding: 0;
+    border: 0;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+@media (min-width:1200px)
+{.container{max-width:1200px}}
+
+.row{
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:nowrap;
+    flex-wrap:nowrap;
+    margin-right:0px;
+    margin-left:0px
+}
+.menu_text li {
+    float: left;
+    padding-right: 75px;
+    font-size: 18px;
+    color: #ffffff;
+    padding-top: 18px;
+}
+
+.tox .tox-editor-header{
+    z-index:initial !important;
+}

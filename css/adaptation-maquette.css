@@ -22,7 +22,7 @@
 #boutonOuvrirPanneau {
     cursor:pointer; 
     float: right;
-    padding-top: 12px;
+    padding-top: 18px;
 }
 
 @media (max-width: 575px) {
@@ -69,7 +69,7 @@ h2 {
     background-color: #1a1a1a;
     color: #ebebeb;
     height: auto;
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     padding: 40px 10px 20px 10px;
     text-align: center;
 }
@@ -114,6 +114,7 @@ a.bouton {
     text-align: center;
     padding: 10px;
     margin-top: 30px;
+    height: fit-content;
 }
 
 a.bouton:hover {

@@ -45,6 +45,22 @@
         <p class="copyright">Site Web par Antoine Ouellette. Année:<?php echo date("Y"); ?></p>
     </div>
 </div>
+<?php
+if (isset($visible_tiny_mce))
+{
+    echo "
+        <script src=\"https://cdn.tiny.cloud/1/suyudwrrjr855u2yvi15qj43lyz9hphp2vjpxymyw6im1ped/tinymce/6/tinymce.min.js\" referrerpolicy=\"origin\"></script>
+        <script>
+            tinymce.init({
+                selector:'textarea.tinymce',
+                menubar: false,
+                plugins: 'link, image, lists, code, table',
+                toolbar: 'bold italic | link image | bullist numlist | table | pastetext removeformat | code'
+            });
+        </script>
+    ";
+}
+?>
 </body>
 
 </html>
